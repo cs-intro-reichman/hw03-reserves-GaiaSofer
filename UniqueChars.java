@@ -12,19 +12,25 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         // create a new string
-        String lowcase = "";
+        String newString = "" + s.charAt(0);
     
-        // switch letters for lowercase characters
-        for (int i = 0; i < s.length(); i++) {
+        // checks for duplicate characters
+        for (int i = 1; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if (Character.isUpperCase(ch)) {
-                char charLowcase = (char) (ch + 32);
-                lowcase += charLowcase;
-            } else {
-                lowcase += ch;
+            boolean isDuplicate = false;
+    
+            for (int n = 0; n < newString.length(); n++) {
+                if (ch == newString.charAt(n)) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+    
+            if (!isDuplicate) {
+                newString = newString + ch;
             }
         }
     
-        return lowcase;
+        return newString;
     }
 }
