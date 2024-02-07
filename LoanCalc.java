@@ -67,13 +67,13 @@ public class LoanCalc {
 		while ((hi - lo) > epsilon) {
 			g = (lo + hi) / 2;
 			double balanceAtG = endBalance(loan, rate, n, g);
-			double balanceAtHi = endBalance(loan, rate, n, hi);
+			double balanceAtLo = endBalance(loan, rate, n, lo);
 	
-			if (balanceAtG * balanceAtHi > 0) {
-				// The solution between g and hi
+			if (balanceAtG * balanceAtLo > 0) {
+				// The solution is between g and hi
 				lo = g;
 			} else {
-				// The solution between lo and g
+				// The solution is between lo and g
 				hi = g;
 			}
 			iterationCounter++;
@@ -81,7 +81,6 @@ public class LoanCalc {
 	
 		return g;
 	}
-   
 	
 	/**
 	* Computes the ending balance of a loan, given the sum of the loan, the periodical
