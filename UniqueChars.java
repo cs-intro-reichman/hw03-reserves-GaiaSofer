@@ -17,16 +17,9 @@ public class UniqueChars {
         // checks for duplicate characters
         for (int i = 1; i < s.length(); i++) {
             char ch = s.charAt(i);
-            boolean isDuplicate = false;
     
-            for (int n = 0; n < newString.length(); n++) {
-                if (ch == newString.charAt(n)) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-    
-            if (!isDuplicate) {
+            // check if ch is already in newString
+            if (newString.indexOf(ch) == -1) {
                 newString = newString + ch;
             }
         }
