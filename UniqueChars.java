@@ -11,19 +11,20 @@ public class UniqueChars {
      * unless they are space characters.
      */
     public static String uniqueChars(String s) {
-        // create new string
+        // create a new string
         String lowcase = "";
-
-        // switch letters for low case charcters
-        for (int i = 0; i <= s.length()-1; i++) {
-        char ch = s.charAt(i);
-            if (ch <= 90 && ch >= 65) {
-                char charlowcase = (char) (ch + 32);
-                lowcase = lowcase + charlowcase;
-            } else {
-                lowcase = lowcase + ch;
-            }
-            }
     
-        return lowcase;}
+        // switch letters for lowercase characters
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                char charLowcase = (char) (ch + 32);
+                lowcase += charLowcase;
+            } else {
+                lowcase += ch;
+            }
+        }
+    
+        return lowcase;
     }
+}
