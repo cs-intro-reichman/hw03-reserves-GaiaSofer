@@ -10,10 +10,6 @@ public class Calendar {
      * Prints the calendar of a given year.
      */
     public static void main(String args[]) {
-        if (args.length != 1) {
-            System.out.println("Usage: java Calendar <year>");
-            return;
-        }
 
         int givenYear = Integer.parseInt(args[0]);
 
