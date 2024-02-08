@@ -10,20 +10,22 @@ public class UniqueChars {
      * except that all the duplicate characters are removed,
      * unless they are space characters.
      */
-    public static String uniqueChars(String s) {
-        // create a new string
-        String newString = "" + s.charAt(0);
+        public static String uniqueChars(String s) {
+            // create a new string
+            String newString = "" + s.charAt(0);
     
-        // checks for duplicate characters
-        for (int i = 1; i < s.length(); i++) {
-            char ch = s.charAt(i);
+            // checks for duplicate characters
+            for (int i = 1; i < s.length(); i++) {
+                char ch = s.charAt(i);
     
-            // check if ch is not already in newString, including space
-            if (ch != ' ' && !newString.contains(String.valueOf(ch))) {
-                newString = newString + ch;
+                // check if ch is not already in newString
+                if (!newString.contains(String.valueOf(ch))) {
+                    newString = newString + ch;
+                } else if (ch == ' ' && s.charAt(i-1) != ' ') {
+                    newString = newString + ch;
+                }
             }
-        }
     
-        return newString;
+            return newString;
+        }
     }
-}
