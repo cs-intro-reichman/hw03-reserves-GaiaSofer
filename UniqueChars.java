@@ -18,8 +18,8 @@ public class UniqueChars {
         for (int i = 1; i < s.length(); i++) {
             char ch = s.charAt(i);
     
-            // check if ch is already in newString
-            if (newString.indexOf(ch) == -1) {
+            // check if ch is not already in newString, including space
+            if (ch != ' ' && !newString.contains(String.valueOf(ch))) {
                 newString = newString + ch;
             }
         }
